@@ -90,12 +90,12 @@ export default function AboutSection() {
             
             {/* Main Editorial Bio Title */}
             <div className="flex flex-col items-start gap-8">
-              <h1 className="heading-h1 text-[28px] sm:text-[38px] lg:text-[42px] font-bold leading-[1.15] text-[var(--black)] tracking-[-0.02em]">
-                Hello, I’m Alex Fenwick — author and <br className="hidden lg:block"/>
+              <h3 className="heading-h3 leading-[1.15] text-[var(--black)] tracking-[-0.02em]">
+                Hello, I’m Sajjad Ali Ashar — author and <br className="hidden lg:block"/>
                 psychologist. My mission is simple: <br className="hidden lg:block"/>
                 give you practical tools to build a life <br className="hidden lg:block"/>
                 aligned with your values and goals.
-              </h1>
+              </h3>
 
               <button
                 type="button"

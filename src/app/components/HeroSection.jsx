@@ -16,10 +16,13 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="dark-bg bg-[var(--black)] text-[var(--white)] min-h-screen w-full relative selection:bg-white selection:text-black overflow-hidden flex justify-center">
+    <section className="dark-bg bg-[var(--black)] bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-[var(--white)] min-h-screen w-full relative selection:bg-white selection:text-black overflow-hidden flex justify-center">
       
+      {/* Optional dark overlay if needed for text readability */}
+      <div className="absolute inset-0 bg-black/30 pointer-events-none z-0"></div>
+
       {/* Centered, max-width constrained container with consistent padding */}
-      <div className="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-6 sm:py-8 lg:py-12 flex flex-col justify-between">
+      <div className="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-6 sm:py-8 lg:py-12 flex flex-col justify-between z-10 relative">
         
         {/* Top Header Row */}
         <header className="w-full flex justify-end items-start z-10 h-10">
@@ -47,7 +50,7 @@ export default function HeroSection() {
           {/* Bottom Editorial Subtitle & Scroll Button */}
           <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-4 pb-2">
             {/* Subtitle text */}
-            <p className="body-lead text-[var(--white)] max-w-xl text-[16px] sm:text-[18px] leading-[1.4] m-0">
+            <h5 className="heading-h5 text-[var(--white)] max-w-xl text-[16px] sm:text-[18px] leading-[1.4] m-0">
               <span className="font-bold text-[var(--white)]">Author of </span>
               <span className="font-normal text-[var(--muted-gray)]">
                 Deep Focus, Better Systems,
@@ -55,7 +58,7 @@ export default function HeroSection() {
               <br className="hidden sm:inline" />
               <span className="font-bold text-[var(--white)]">and </span>
               <span className="font-bold text-[var(--white)]">The Clarity Habit.</span>
-            </p>
+            </h5>
 
             {/* Circular Down Arrow Button */}
             <button
