@@ -38,7 +38,7 @@ export default function Navbar() {
             <Link href="/about" onClick={() => setIsMenuOpen(false)} className={getLinkClass("/about")}>About</Link>
             <Link href="/#books" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-gray-300 font-semibold text-[17px]">Books</Link>
             <Link href="/#events" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-gray-300 font-semibold text-[17px]">Events</Link>
-            <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-gray-300 font-semibold text-[17px]">Contact</Link>
+            <Link href="/contact" onClick={() => setIsMenuOpen(false)} className={getLinkClass("/contact")}>Contact</Link>
           </div>
           <button onClick={() => setIsMenuOpen(false)} className="text-white hover:text-gray-300 font-bold text-[17px] tracking-wide cursor-pointer">Close</button>
         </div>
