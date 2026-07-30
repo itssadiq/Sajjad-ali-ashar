@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Navbar from "../Navbar";
 
 export default function HeroSection() {
   const scrollToNextSection = () => {
@@ -16,7 +17,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="dark-bg bg-[var(--black)] bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-[var(--white)] min-h-screen w-full relative selection:bg-white selection:text-black overflow-hidden flex justify-center">
+    <section className="sticky top-0 z-0 dark-bg bg-[var(--black)] bg-[url('/hero.jpg')] bg-cover bg-center bg-no-repeat text-[var(--white)] min-h-screen w-full selection:bg-white selection:text-black overflow-hidden flex justify-center">
       
       {/* Optional dark overlay if needed for text readability */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none z-0"></div>
@@ -25,16 +26,7 @@ export default function HeroSection() {
       <div className="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-6 sm:py-8 lg:py-12 flex flex-col justify-between z-10 relative">
         
         {/* Top Header Row */}
-        <header className="w-full flex justify-end items-start z-10 h-10">
-          {/* Menu button */}
-          <button
-            type="button"
-            aria-label="Toggle Navigation Menu"
-            className="btn-label-sm text-[var(--white)] bg-transparent border border-[#333333] hover:border-[var(--white)] rounded-full px-5 py-2 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-1 focus:ring-white block"
-          >
-            Menu
-          </button>
-        </header>
+        <Navbar />
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col justify-end lg:justify-between w-full mt-4 lg:mt-0">
