@@ -2,6 +2,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AboutHero from "../components/about/AboutHero";
 import AboutGallery from "../components/about/AboutGallery";
+import AboutAwards from "../components/about/AboutAwards";
+import AboutDistribution from "../components/about/AboutDistribution";
+import BooksShowcaseSection from "../components/home/BooksShowcaseSection";
 
 export const metadata = {
   title: "About | Fenwick",
@@ -22,6 +25,9 @@ export default function About() {
       <div className="flex-grow">
         <AboutHero />
         <AboutGallery />
+        <AboutAwards />
+        <AboutDistribution />
+        <BooksShowcaseSection />
       </div>
 
       <div className="relative z-10 bg-[var(--white)] w-full flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
