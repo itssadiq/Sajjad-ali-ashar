@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Navbar from "../Navbar";
 
 export default function HeroSection() {
   const scrollToNextSection = () => {
@@ -25,8 +24,8 @@ export default function HeroSection() {
       {/* Centered, max-width constrained container with consistent padding */}
       <div className="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-6 sm:py-8 lg:py-12 flex flex-col justify-between z-10 relative">
         
-        {/* Top Header Row */}
-        <Navbar />
+        {/* Top Spacer to replace Navbar height and maintain exact layout */}
+        <div className="w-full h-10"></div>
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col justify-end lg:justify-between w-full mt-4 lg:mt-0">
