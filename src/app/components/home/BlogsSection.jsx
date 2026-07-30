@@ -39,7 +39,7 @@ export default function BlogsSection() {
 
           <button
             type="button"
-            className="btn-label-sm bg-[var(--black)] text-[var(--white)] hover:bg-[#333333] px-8 py-3.5 rounded-full font-semibold text-[14px] transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 shrink-0"
+            className="bg-[var(--dark-text)] text-[var(--white)] hover:bg-[var(--black)] rounded-full px-8 py-4 font-semibold text-[16px] transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-black shrink-0"
           >
             All posts
           </button>
@@ -63,43 +63,53 @@ export default function BlogsSection() {
             {/* Events List on the Right */}
             <div className="md:col-span-7 lg:col-span-7 flex flex-col w-full">
               {events.map((event, idx) => (
-                <div 
-                  key={idx} 
-                  className="w-full flex flex-col py-6 sm:py-8 border-b border-[#DCDCDC] group cursor-pointer"
+                <div
+                  key={idx}
+                  className="group py-6 px-4 -mx-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 border-b-2 border-gray-300 hover:border-gray-400 hover:bg-gray-100 rounded-xl transition-all duration-300 cursor-pointer"
                 >
-                  
-                  {/* Date & Time */}
-                  <span className="text-[14px] text-[var(--muted-gray)] font-medium mb-3 tracking-wide">
-                    {event.date} &nbsp;/&nbsp; {event.time}
-                  </span>
-                  
-                  {/* Title & Mobile Arrow */}
-                  <div className="w-full flex items-center justify-between">
-                    <h3 className="heading-h4 text-[22px] sm:text-[24px] lg:text-[26px] font-bold text-[var(--black)] tracking-[-0.01em] group-hover:text-blue-600 transition-colors duration-200">
+                  {/* Left: Title */}
+                  <div className="flex items-center gap-3">
+                    <span className="body-longform text-[16px] sm:text-[18px] font-bold text-[var(--dark-text)] group-hover:translate-x-2 transition-transform duration-300">
                       {event.title}
-                    </h3>
-                    
-                    {/* Arrow Icon (visible on mobile, or on hover for desktop) */}
-                    <div className="text-[var(--black)] opacity-100 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-300">
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 sm:w-6 sm:h-6"
-                      >
-                        <path
-                          d="M5 12H19M19 12L12 5M19 12L12 19"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
+                    </span>
                   </div>
 
+                  {/* Right: Date & Time & Arrow */}
+                  <div className="flex items-center justify-between w-full sm:w-auto gap-4 mt-2 sm:mt-0 group-hover:-translate-x-2 transition-transform duration-300">
+                    <span className="body-longform text-[14px] sm:text-[16px] text-[var(--dark-text)] font-medium">
+                      {event.date} &nbsp;/&nbsp; {event.time}
+                    </span>
+                    {/* Arrow indicator (desktop) */}
+                    <svg
+                      className="w-5 h-5 text-[var(--dark-text)] transition-transform duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 sm:block hidden"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                    {/* Mobile arrow indicator */}
+                    <svg
+                      className="w-5 h-5 text-[var(--dark-text)] sm:hidden block"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        d="M14 5l7 7m0 0l-7-7m7-7H3"
+                      />
+                    </svg>
+                  </div>
                 </div>
               ))}
             </div>

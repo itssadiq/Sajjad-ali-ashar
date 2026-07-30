@@ -4,62 +4,69 @@ import React from "react";
 
 export default function BookHighlightSection() {
   return (
-    <section className="bg-[var(--black)] text-[var(--white)] w-full py-16 sm:py-24 lg:py-32 flex justify-center selection:bg-white selection:text-black">
-      <div className="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-        
-        {/* Mobile/Tablet: Image appears on top. Desktop: Image is on the right. 
-            We handle this by using flex-col-reverse on mobile/tablet, or just ordering.
-            Actually, the design shows Image on TOP on Tablet/Mobile. 
-            So we use flex-col for mobile, and lg:flex-row to put text on left, image on right. 
-            Wait, if flex-col is used, the first item is on top. 
-            In the desktop design, Text is on the LEFT (first), Image is on the RIGHT (second).
-            So if we use flex-col-reverse on mobile, Image (second in DOM) goes to TOP.
-            Let's use order classes to be explicit. */}
-        
-        {/* Left: Text Content */}
-        <div className="flex-1 flex flex-col items-start gap-6 max-w-xl order-2 lg:order-1">
-          <h2 className="heading-h2 text-[38px] sm:text-[42px] lg:text-[48px] font-bold text-[var(--white)] tracking-[-0.02em] leading-[1.1]">
-            Coming soon: Deep Focus (2026)
-          </h2>
-          <p className="body-longform text-[16px] sm:text-[18px] text-[var(--white)] leading-[1.6]">
-            In his newest book, Fenwick shows how simple routines can clear mental space, reduce overwhelm, and unlock better decisions every day.
-          </p>
-          <button 
-            type="button"
-            className="mt-2 btn-label-large bg-[var(--white)] text-[var(--black)] hover:bg-[#E6E6E6] px-8 py-3.5 rounded-full font-semibold text-[16px] transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-          >
-            Read more
-          </button>
-        </div>
-
-        {/* Right: Book Image Area */}
-        {/* We use a placeholder that visually mimics the grey curvy shape and the book cover */}
-        <div className="flex-1 w-full flex justify-center lg:justify-end order-1 lg:order-2 mb-8 lg:mb-0">
-          <div className="relative w-full max-w-[500px] aspect-square sm:aspect-[5/4] lg:aspect-[4/3] bg-[#D9D9D9] rounded-[40px] sm:rounded-[60px] flex items-center justify-center shadow-inner overflow-hidden">
-            
-            {/* Decorative wavy background elements to mimic the 3D shape */}
-            <div className="absolute top-1/2 left-0 w-[120%] h-[120%] -translate-y-1/2 -translate-x-[10%] rounded-[100%] bg-[#CFCFCF] mix-blend-multiply opacity-40 blur-2xl"></div>
-
-            {/* Placeholder Book Cover */}
-            <div className="w-[60%] sm:w-[50%] lg:w-[55%] h-[80%] bg-[#212121] rounded-r-lg rounded-l-sm shadow-2xl flex flex-col p-6 sm:p-8 relative border-l-[6px] border-[#111111] z-10 transform transition-transform hover:scale-105 duration-500">
-              <span className="text-[var(--white)] font-bold text-xl sm:text-2xl tracking-tight">Deep Focus</span>
-              <span className="text-[#E6E6E6] text-sm sm:text-base mt-1">From chaos to order</span>
-              
-              {/* Abstract art inside book cover */}
-              <div className="mt-8 flex-1 w-full bg-[#E6E6E6] relative p-4 overflow-hidden">
-                <div className="w-8 h-8 bg-[#9BAFBA] absolute top-4 left-1/2 -translate-x-1/2"></div>
-                <div className="w-5 h-5 bg-[#FF453A] rounded-full absolute bottom-10 left-4 z-10"></div>
-                <div className="w-full h-[45%] bg-[#4A4A4A] absolute bottom-0 left-0"></div>
-                {/* Texture overlay simulation */}
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle,var(--black)_1px,transparent_1px)] bg-[size:4px_4px]"></div>
-              </div>
-              
-              <span className="text-[var(--white)] text-xs sm:text-sm text-right mt-6 font-medium">Alex Fenwick</span>
+    <section className="bg-[var(--white)] w-full py-12 sm:py-16 flex justify-center selection:bg-[var(--black)] selection:text-[var(--white)]">
+      <div className="w-full max-w-[1440px] px-4 sm:px-8 lg:px-12">
+        <div className="bg-[var(--black)] w-full px-8 sm:px-12 lg:px-20 py-12 lg:py-16 flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-6 overflow-hidden">
+          
+          {/* Left: Text Content - Justify Between to push heading up and text/button down */}
+          <div className="flex flex-col justify-between w-full lg:w-[45%] order-2 lg:order-1 z-10 min-h-full">
+            <div>
+              <h2 className="heading-h2 !text-[var(--white)] leading-[1.05] tracking-tight text-[40px] sm:text-[48px] lg:text-[56px] xl:text-[64px]">
+                Coming soon: Deep <br className="hidden lg:block" /> Focus (2026)
+              </h2>
             </div>
             
+            <div className="mt-16 lg:mt-auto flex flex-col items-start gap-6 lg:gap-8">
+              <p className="text-[var(--white)] font-medium text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.6] max-w-[90%]">
+                In his newest book, Fenwick shows how simple routines can clear mental space, reduce overwhelm, and unlock better decisions every day.
+              </p>
+              <button 
+                type="button"
+                className="bg-[var(--white)] text-[var(--black)] hover:bg-gray-200 px-7 py-3 rounded-full font-bold text-[14px] transition-colors duration-200 cursor-pointer"
+              >
+                Read more
+              </button>
+            </div>
           </div>
-        </div>
 
+          {/* Right: Book Visual */}
+          <div className="w-full lg:w-[52%] flex justify-center lg:justify-end order-1 lg:order-2 relative z-0 mt-8 lg:mt-0 items-center">
+            
+            <div className="relative w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[580px] aspect-[5/4] flex items-center justify-center">
+              
+              {/* Wavy Cloud Background SVG - Precisely matched to the screenshot shape */}
+              <div className="absolute inset-0 flex items-center justify-center -z-10 w-full h-full">
+                <svg viewBox="0 0 550 450" className="w-full h-full text-[#C8C8C8]" fill="currentColor" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                  {/* 3 stacked pill shapes matching the screenshot's exact proportions */}
+                  <rect x="25" y="0" width="500" height="150" rx="75" />
+                  <rect x="25" y="135" width="500" height="150" rx="75" />
+                  <rect x="25" y="270" width="500" height="150" rx="75" />
+                  
+                  {/* Subtle hard diagonal shadow behind the book (like in the screenshot) */}
+                  <polygon points="300,150 550,350 550,450 200,450" fill="rgba(0,0,0,0.12)" />
+                </svg>
+              </div>
+
+              {/* Book Cover (Using Background Image) */}
+              <div 
+                className="relative w-[260px] sm:w-[300px] lg:w-[350px] aspect-[1/1.45] bg-[#2E2E2E] bg-cover bg-center bg-no-repeat rounded-r-md rounded-l-[2px] transform -rotate-2 overflow-hidden"
+                style={{
+                  backgroundImage: "url('/book-cover-placeholder.jpg')", /* Replace with your actual book image path */
+                  boxShadow: "25px 30px 40px -15px rgba(0, 0, 0, 0.8), 10px 10px 20px -5px rgba(0, 0, 0, 0.4)",
+                  borderLeft: "10px solid #1A1A1A"
+                }}
+              >
+                {/* Book spine indent shadow for 3D realism */}
+                <div className="absolute top-0 bottom-0 left-0 w-[3px] bg-black/40 z-10 pointer-events-none"></div>
+                
+                {/* Subtle highlight / glare on the left edge of the book */}
+                <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-white/10 to-transparent z-10 pointer-events-none"></div>
+              </div>
+              
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
