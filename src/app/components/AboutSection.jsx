@@ -71,15 +71,15 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-[var(--white)] text-[var(--dark-text)] w-full min-h-screen selection:bg-[var(--black)] selection:text-[var(--white)] overflow-hidden flex justify-center"
+      className="bg-(--white) text-(--dark-text) w-full min-h-screen selection:bg-(--black) selection:text-(--white) overflow-hidden flex justify-center"
     >
-      <div className="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-16 flex flex-col justify-between">
+      <div className="w-full max-w-360 px-6 sm:px-12 lg:px-24 py-16 flex flex-col justify-between">
         {/* Top Layout Grid */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 mb-20 lg:mb-28">
           
           {/* Left Column: Eyebrow Tag */}
           <div className="lg:col-span-4 lg:col-start-1 pt-2">
-            <span className="eyebrow-h6 text-[var(--dark-text)] block font-bold text-[14px] tracking-[0.04em] uppercase">
+            <span className="eyebrow-h6 text-(--dark-text) block font-bold text-[14px] tracking-[0.04em] uppercase">
               AUTHOR BIO
             </span>
           </div>
@@ -90,7 +90,7 @@ export default function AboutSection() {
             
             {/* Main Editorial Bio Title */}
             <div className="flex flex-col items-start gap-8">
-              <h3 className="heading-h3 leading-[1.15] text-[var(--black)] tracking-[-0.02em]">
+              <h3 className="heading-h3 leading-[1.15] text-(--black) tracking-[-0.02em]">
                 Hello, I’m Sajjad Ali Ashar — author and <br className="hidden lg:block"/>
                 psychologist. My mission is simple: <br className="hidden lg:block"/>
                 give you practical tools to build a life <br className="hidden lg:block"/>
@@ -99,7 +99,7 @@ export default function AboutSection() {
 
               <button
                 type="button"
-                className="btn-label-sm bg-[var(--dark-text)] text-[var(--white)] hover:bg-[var(--black)] rounded-full px-6 py-3 font-semibold text-[14px] transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-black"
+                className="btn-label-sm bg-(--dark-text) text-(--white) hover:bg-(--black) rounded-full px-6 py-3 font-semibold text-[14px] transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-black"
               >
                 About author
               </button>
@@ -107,7 +107,7 @@ export default function AboutSection() {
 
             {/* Books List Section */}
             <div className="flex flex-col gap-8 pt-4 w-full">
-              <h2 className="heading-h3 text-[28px] lg:text-[32px] font-bold text-[var(--black)] tracking-[-0.02em]">
+              <h2 className="heading-h3 text-[28px] lg:text-[32px] font-bold text-(--black) tracking-[-0.02em]">
                 Books
               </h2>
 
@@ -119,11 +119,11 @@ export default function AboutSection() {
                   >
                     {/* Left: Book Title & Pre-order Badge */}
                     <div className="flex items-center gap-3">
-                      <span className="body-longform text-[16px] font-medium text-[var(--dark-text)]">
+                      <span className="body-longform text-[16px] font-medium text-(--dark-text)">
                         {book.title}
                       </span>
                       {book.badge && (
-                        <span className="bg-[var(--black)] text-[var(--white)] text-[12px] font-semibold px-3 py-1 rounded-full whitespace-nowrap leading-none pb-[5px] pt-[6px]">
+                        <span className="bg-(--black) text-(--white) text-[12px] font-semibold px-3 py-1 rounded-full whitespace-nowrap leading-none pb-1.25 pt-1.5">
                           {book.badge}
                         </span>
                       )}
@@ -131,12 +131,12 @@ export default function AboutSection() {
 
                     {/* Right: Year & Arrow (Arrow on mobile screens) */}
                     <div className="flex items-center justify-between w-full sm:w-auto gap-4 mt-2 sm:mt-0">
-                      <span className="body-longform text-[16px] text-[var(--dark-text)] font-medium">
+                      <span className="body-longform text-[16px] text-(--dark-text) font-medium">
                         {book.year}
                       </span>
                       {/* Mobile arrow indicator matching mobile screenshot */}
                       <svg
-                        className="w-5 h-5 text-[var(--dark-text)] sm:hidden block"
+                        className="w-5 h-5 text-(--dark-text) sm:hidden block"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
