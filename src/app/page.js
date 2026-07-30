@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/home/HeroSection";
 import AboutSection from "./components/home/AboutSection";
-import BookHighlightSection from "./components/home/BookHighlightSection";
+import BookHighlightSection from "./components/BookHighlightSection";
 import BooksShowcaseSection from "./components/home/BooksShowcaseSection";
 import BlogsSection from "./components/home/BlogsSection";
 import ReviewsSection from "./components/home/ReviewsSection";
@@ -19,9 +19,19 @@ export default function Home() {
       </div>
 
       <HeroSection />
+      
       <div className="relative z-10 bg-[var(--white)] w-full flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
         <AboutSection />
-        <BookHighlightSection />
+        
+        {/* Reusable Book Highlight Section */}
+        <BookHighlightSection 
+          heading={<>Coming soon: Deep <br className="hidden lg:block" /> Focus (2026)</>}
+          text="In his newest book, Fenwick shows how simple routines can clear mental space, reduce overwhelm, and unlock better decisions every day."
+          image="/hero.jpg"
+          buttonText="Read more"
+          buttonPath="#"
+        />
+        
         <BooksShowcaseSection />
         <BlogsSection />
         <ReviewsSection />
