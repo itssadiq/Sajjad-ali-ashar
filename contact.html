@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Fenwick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Geist"', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --black: #080808;
+                --dark-text: #212121;
+                --white: #fafafa;
+                --off-white: #F8F7F7;
+                --light-gray: #E6E6E6;
+                --border-gray: #CFCFCF;
+                --muted-gray: #B5B5B5;
+                --raised-dark: #262626;
+
+                --bg-dark: var(--black);
+                --bg-light: var(--white);
+                --text-dark-primary: var(--dark-text);
+                
+                --font-size-display: 200px;
+                --lh-display: 0.9;
+                --ls-display: -0.06em;
+            }
+
+            @media (max-width: 1199px) { :root { --font-size-display: 160px; } }
+            @media (max-width: 809px) { :root { --font-size-display: 88px; } }
+
+            body {
+                background-color: var(--bg-light);
+                color: var(--text-dark-primary);
+                font-family: 'Geist', Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .display-title { font-weight: 700; font-size: var(--font-size-display); line-height: var(--lh-display); letter-spacing: var(--ls-display); }
+            .heading-h2 { font-weight: 700; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; }
+            .heading-h3 { font-weight: 600; font-size: 35px; line-height: 1.2; }
+            .heading-h4 { font-weight: 700; font-size: 31px; line-height: 1.2; }
+            .heading-h5 { font-weight: 700; font-size: 24px; line-height: 1.2; }
+            .eyebrow-h6 { font-weight: 700; font-size: 14px; line-height: 1.2; letter-spacing: 0.04em; text-transform: uppercase; }
+            .body-longform { font-weight: 400; font-size: 16px; line-height: 1.6; letter-spacing: -0.02em; }
+        }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="min-h-full flex flex-col">
+    <!-- Navbar -->
+    <div class="fixed top-0 left-0 w-full flex justify-center z-50 pointer-events-none">
+        <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-6 sm:py-8 lg:py-12 pointer-events-auto">
+            <header class="w-full flex justify-end items-start z-50 h-10 relative">
+                <button type="button" id="menu-btn" class="text-[var(--white)] bg-[#111] border border-[#333] hover:border-[var(--white)] rounded-full px-6 py-2.5 text-lg font-medium transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-1 focus:ring-white opacity-100 block">Menu</button>
+                <div id="menu-dropdown" class="absolute top-0 right-0 bg-[#0a0a0a] border border-[#333333] rounded-2xl p-6 min-w-[240px] shadow-2xl flex flex-col z-50 transition-all duration-300 transform origin-top-right opacity-0 scale-95 pointer-events-none">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex flex-col gap-4 mt-1">
+                            <a href="index.html" class="menu-link font-semibold text-[17px] transition-colors text-white hover:text-gray-300">Home</a>
+                            <a href="about.html" class="menu-link font-semibold text-[17px] transition-colors text-white hover:text-gray-300">About</a>
+                            <a href="index.html#books" class="menu-link text-white hover:text-gray-300 font-semibold text-[17px]">Books</a>
+                            <a href="index.html#events" class="menu-link text-white hover:text-gray-300 font-semibold text-[17px]">Events</a>
+                            <a href="contact.html" class="menu-link font-semibold text-[17px] transition-colors text-white underline decoration-[#f4a1cc] underline-offset-4 decoration-2">Contact</a>
+                        </div>
+                        <button id="close-btn" class="text-white hover:text-gray-300 font-bold text-[17px] tracking-wide cursor-pointer">Close</button>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <main class="w-full bg-[var(--black)] flex flex-col relative min-h-screen selection:bg-[var(--white)] selection:text-[var(--black)]">
+        <div class="flex-grow flex flex-col items-center justify-center pt-32 pb-24 px-4 sm:px-8">
+            <h1 class="text-[80px] sm:text-[100px] lg:text-[140px] font-bold text-white tracking-[-0.04em] leading-none mb-12 sm:mb-16 text-center">Contact</h1>
+            
+            <div class="text-center mb-12">
+                <p class="text-white text-[16px] sm:text-[18px] font-medium mb-2">
+                    Interested in working together? <br class="block sm:hidden" /> Send me an email to
+                </p>
+                <a href="mailto:hello@fenwick.com" class="text-white text-[24px] sm:text-[32px] font-bold underline decoration-2 underline-offset-4 hover:text-gray-300 transition-colors">
+                    hello@fenwick.com
+                </a>
+            </div>
+
+            <div class="bg-[#111111] w-full max-w-[480px] rounded-[24px] p-8 sm:p-10 shadow-2xl">
+                <form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+                    <div class="flex flex-col gap-2">
+                        <label for="name" class="text-[#888888] text-[13px] font-medium ml-1">Name*</label>
+                        <input type="text" id="name" placeholder="John Smith" class="bg-[#1a1a1a] text-white px-5 py-4 rounded-xl outline-none focus:ring-1 focus:ring-white transition-all w-full placeholder:text-[#555] border border-transparent focus:border-[#333]" required />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="email" class="text-[#888888] text-[13px] font-medium ml-1">Email*</label>
+                        <input type="email" id="email" placeholder="john@email.com" class="bg-[#1a1a1a] text-white px-5 py-4 rounded-xl outline-none focus:ring-1 focus:ring-white transition-all w-full placeholder:text-[#555] border border-transparent focus:border-[#333]" required />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="message" class="text-[#888888] text-[13px] font-medium ml-1">Message*</label>
+                        <textarea id="message" placeholder="Your message" rows="4" class="bg-[#1a1a1a] text-white px-5 py-4 rounded-xl outline-none focus:ring-1 focus:ring-white transition-all w-full placeholder:text-[#555] border border-transparent focus:border-[#333] resize-y min-h-[140px]" required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#1f1f1f] hover:bg-[#333] text-white font-semibold py-4 rounded-[16px] mt-2 transition-colors duration-200 text-[15px]">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="relative z-10 bg-[var(--white)] w-full flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)] mt-auto">
+            <!-- Footer -->
+            <footer class="bg-[var(--black)] text-[var(--white)] w-full flex justify-center selection:bg-[var(--white)] selection:text-[var(--black)]">
+                <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 pt-20 sm:pt-28 pb-10 flex flex-col">
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-8 mb-24">
+                        <div class="flex flex-row gap-16 sm:gap-32 lg:gap-40">
+                            <div class="flex flex-col gap-6">
+                                <span class="text-[#A3A3A3] text-[15px] font-medium tracking-wide">Pages</span>
+                                <ul class="flex flex-col gap-5">
+                                    <li><a href="about.html" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">About</a></li>
+                                    <li><a href="index.html#books" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Books</a></li>
+                                    <li><a href="index.html#events" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Events</a></li>
+                                    <li><a href="contact.html" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-6">
+                                <span class="text-[#A3A3A3] text-[15px] font-medium tracking-wide">Social</span>
+                                <ul class="flex flex-col gap-5">
+                                    <li><a href="#" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Instagram</a></li>
+                                    <li><a href="#" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">LinkedIn</a></li>
+                                    <li><a href="#" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Facebook</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-6 w-full lg:w-auto lg:min-w-[400px]">
+                            <span class="text-[var(--white)] text-[18px] sm:text-[20px] font-bold tracking-tight">Get monthly newsletter</span>
+                            <form class="flex flex-row items-center gap-3 w-full" onsubmit="event.preventDefault()">
+                                <input type="email" placeholder="Your email" class="w-full lg:w-[280px] bg-[#222222] text-white placeholder-[#888888] px-6 py-3.5 rounded-full outline-none focus:ring-1 focus:ring-white transition-all text-[15px]" required />
+                                <button type="submit" class="bg-[var(--white)] text-[var(--black)] hover:bg-[#E6E6E6] px-8 py-3.5 rounded-full font-bold text-[15px] transition-colors duration-200">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="w-full h-px bg-[#333333] mb-8"></div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                        <span class="text-[var(--white)] font-bold text-[14px] sm:text-[15px]">Website by Sanna Granqvist</span>
+                        <span class="text-[var(--white)] font-bold text-[14px] sm:text-[15px]">© 2026 Alex Fenwick. All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Fenwick</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Geist"', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --black: #080808;
+                --dark-text: #212121;
+                --white: #fafafa;
+                --off-white: #F8F7F7;
+                --light-gray: #E6E6E6;
+                --border-gray: #CFCFCF;
+                --muted-gray: #B5B5B5;
+                --raised-dark: #262626;
+
+                --bg-dark: var(--black);
+                --bg-light: var(--white);
+                --text-dark-primary: var(--dark-text);
+                
+                --font-size-display: 200px;
+                --lh-display: 0.9;
+                --ls-display: -0.06em;
+            }
+
+            @media (max-width: 1199px) { :root { --font-size-display: 160px; } }
+            @media (max-width: 809px) { :root { --font-size-display: 88px; } }
+
+            body {
+                background-color: var(--bg-light);
+                color: var(--text-dark-primary);
+                font-family: 'Geist', Arial, sans-serif;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .display-title { font-weight: 700; font-size: var(--font-size-display); line-height: var(--lh-display); letter-spacing: var(--ls-display); }
+            .heading-h2 { font-weight: 700; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; }
+            .heading-h3 { font-weight: 600; font-size: 35px; line-height: 1.2; }
+            .heading-h4 { font-weight: 700; font-size: 31px; line-height: 1.2; }
+            .heading-h5 { font-weight: 700; font-size: 24px; line-height: 1.2; }
+            .eyebrow-h6 { font-weight: 700; font-size: 14px; line-height: 1.2; letter-spacing: 0.04em; text-transform: uppercase; }
+            .body-longform { font-weight: 400; font-size: 16px; line-height: 1.6; letter-spacing: -0.02em; }
+        }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="min-h-full flex flex-col">
+    <!-- Navbar -->
+    <div class="fixed top-0 left-0 w-full flex justify-center z-50 pointer-events-none">
+        <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 py-6 sm:py-8 lg:py-12 pointer-events-auto">
+            <header class="w-full flex justify-end items-start z-50 h-10 relative">
+                <button type="button" id="menu-btn" class="text-[var(--white)] bg-[#111] border border-[#333] hover:border-[var(--white)] rounded-full px-6 py-2.5 text-lg font-medium transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-1 focus:ring-white opacity-100 block">Menu</button>
+                <div id="menu-dropdown" class="absolute top-0 right-0 bg-[#0a0a0a] border border-[#333333] rounded-2xl p-6 min-w-[240px] shadow-2xl flex flex-col z-50 transition-all duration-300 transform origin-top-right opacity-0 scale-95 pointer-events-none">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="flex flex-col gap-4 mt-1">
+                            <a href="index.html" class="menu-link font-semibold text-[17px] transition-colors text-white hover:text-gray-300">Home</a>
+                            <a href="about.html" class="menu-link font-semibold text-[17px] transition-colors text-white underline decoration-[#f4a1cc] underline-offset-4 decoration-2">About</a>
+                            <a href="index.html#books" class="menu-link text-white hover:text-gray-300 font-semibold text-[17px]">Books</a>
+                            <a href="index.html#events" class="menu-link text-white hover:text-gray-300 font-semibold text-[17px]">Events</a>
+                            <a href="contact.html" class="menu-link font-semibold text-[17px] transition-colors text-white hover:text-gray-300">Contact</a>
+                        </div>
+                        <button id="close-btn" class="text-white hover:text-gray-300 font-bold text-[17px] tracking-wide cursor-pointer">Close</button>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <main class="w-full bg-[var(--black)] flex flex-col relative min-h-screen">
+        <div class="flex-grow">
+            <!-- About Hero -->
+            <section class="bg-[var(--black)] text-[var(--white)] w-full flex justify-center selection:bg-[var(--white)] selection:text-[var(--black)] pt-32 sm:pt-40 lg:pt-48 pb-16 sm:pb-24 lg:pb-32">
+                <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 flex flex-col">
+                    <h1 class="display-title mb-16 sm:mb-24 lg:mb-32">About</h1>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+                        <div class="lg:col-span-4">
+                            <span class="eyebrow-h6 text-[var(--white)]">AUTHOR BIO</span>
+                        </div>
+                        <div class="lg:col-span-8 flex flex-col gap-10 sm:gap-12 lg:max-w-[720px]">
+                            <h2 class="heading-h2 text-[28px] sm:text-[36px] lg:text-[44px] font-bold leading-[1.1] tracking-tight">Fenwick writes about how people think, change, and live with themselves</h2>
+                            <div class="flex flex-col gap-6 body-longform text-[#B5B5B5]">
+                                <p>Fenwick writes about how people think, change, and live with themselves. His work blends research and reflection, exploring the space between personal growth and ordinary life.</p>
+                                <p>Before turning to writing full-time, he worked in communication and design, experiences that shaped his interest in how language influences behavior.</p>
+                                <p>He lives in Copenhagen and is currently working on his forth book.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Gallery -->
+            <section class="bg-[var(--black)] w-full flex justify-center pb-16 sm:pb-24 lg:pb-32 px-6 sm:px-12 lg:px-24">
+                <div class="w-full max-w-[1440px]">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full">
+                        <div class="w-full aspect-[4/3] bg-[#222] overflow-hidden relative">
+                            <img src="assets/hero.jpg" alt="Gallery image 1" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'text-[#555] text-sm\'>Image 1</span>';this.parentElement.classList.add('flex','items-center','justify-center');"/>
+                        </div>
+                        <div class="w-full aspect-[4/3] bg-[#222] overflow-hidden relative">
+                            <img src="assets/hero.jpg" alt="Gallery image 2" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'text-[#555] text-sm\'>Image 2</span>';this.parentElement.classList.add('flex','items-center','justify-center');"/>
+                        </div>
+                        <div class="w-full aspect-[4/3] bg-[#222] overflow-hidden relative">
+                            <img src="assets/hero.jpg" alt="Gallery image 3" class="w-full h-full object-cover" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'text-[#555] text-sm\'>Image 3</span>';this.parentElement.classList.add('flex','items-center','justify-center');"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Awards -->
+            <section class="bg-[var(--black)] text-[var(--white)] w-full flex justify-center selection:bg-[var(--white)] selection:text-[var(--black)] pb-24 sm:pb-32 lg:pb-40">
+                <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 flex flex-col md:flex-row gap-12 md:gap-16 lg:gap-32">
+                    <div class="md:w-1/3 shrink-0">
+                        <h2 class="heading-h2 text-[40px] sm:text-[48px] lg:text-[64px] font-bold tracking-[-0.02em] leading-[1.1]">Awards</h2>
+                    </div>
+                    <div class="md:w-2/3 flex flex-col">
+                        <div class="py-8 flex flex-col gap-2 border-[#222] border-b pt-0 md:pt-2">
+                            <span class="text-[#888888] text-[14px] font-medium tracking-wide">Finalist / 2024</span>
+                            <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight text-[var(--white)]">Atlas Prize for Inspiring Nonfiction</h3>
+                        </div>
+                        <div class="py-8 flex flex-col gap-2 border-[#222] border-b">
+                            <span class="text-[#888888] text-[14px] font-medium tracking-wide">Recipient / 2023</span>
+                            <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight text-[var(--white)]">Nordic Mind Writing Grant</h3>
+                        </div>
+                        <div class="py-8 flex flex-col gap-2 border-[#222] border-b">
+                            <span class="text-[#888888] text-[14px] font-medium tracking-wide">Shortlisted / 2023</span>
+                            <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight text-[var(--white)]">Haven Prize</h3>
+                        </div>
+                        <div class="py-8 flex flex-col gap-2 border-[#222]">
+                            <span class="text-[#888888] text-[14px] font-medium tracking-wide">Recipient / 2022</span>
+                            <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight text-[var(--white)]">Insight Prize for Reflective Literature</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Distribution -->
+            <section class="bg-[var(--black)] text-[var(--white)] w-full flex justify-center selection:bg-[var(--white)] selection:text-[var(--black)] pb-24 sm:pb-32 lg:pb-40">
+                <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="flex flex-col gap-4 sm:gap-6">
+                            <div class="bg-[#181818] rounded-2xl p-4 sm:p-6 lg:p-8 flex flex-col">
+                                <div class="w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5] relative rounded-xl overflow-hidden mb-6 sm:mb-8 bg-[#222]">
+                                    <img src="assets/hero.jpg" alt="Upcoming events" class="w-full h-full object-cover" />
+                                </div>
+                                <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight mb-3">Upcoming events</h3>
+                                <p class="text-[#a1a1a1] text-[15px] sm:text-[16px] leading-relaxed">Catch Alex at upcoming talks, readings, festivals, and workshops — new dates and locations are posted here as they're confirmed.</p>
+                            </div>
+                            <div class="bg-[#181818] rounded-2xl p-6 lg:p-8 flex items-center justify-start overflow-hidden gap-12 sm:gap-16">
+                                <div class="flex items-center gap-3 opacity-60">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4ZM16 26C10.4772 26 6 21.5228 6 16C6 10.4772 10.4772 6 16 6C21.5228 6 26 10.4772 26 16C26 21.5228 21.5228 26 16 26Z" fill="white"/>
+                                        <path d="M11 15C11 17.7614 13.2386 20 16 20C18.7614 20 21 17.7614 21 15C21 12.2386 18.7614 10 16 10C13.2386 10 11 12.2386 11 15Z" fill="white"/>
+                                    </svg>
+                                    <span class="font-bold text-[18px] tracking-tight text-white">Logoipsum</span>
+                                </div>
+                                <div class="flex items-center gap-3 opacity-60">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 0C7.16344 0 0 7.16344 0 16C0 24.8366 7.16344 32 16 32C24.8366 32 32 24.8366 32 16C32 7.16344 24.8366 0 16 0ZM24.475 22.3537L22.3537 24.475L16 18.1213L9.64625 24.475L7.525 22.3537L13.8787 16L7.525 9.64625L9.64625 7.525L16 13.8787L22.3537 7.525L24.475 9.64625L18.1213 16L24.475 22.3537Z" fill="white"/>
+                                    </svg>
+                                    <span class="font-bold text-[18px] tracking-tight text-white">Logoipsum</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-4 sm:gap-6">
+                            <div class="bg-[#181818] rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col items-start flex-1">
+                                <div class="w-[100px] h-[100px] mb-12 sm:mb-16">
+                                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                        <path d="M20 20C20 8.95431 28.9543 0 40 0H60C71.0457 0 80 8.95431 80 20V80C80 91.0457 71.0457 100 60 100H40C28.9543 100 20 91.0457 20 80V20Z" fill="#ffb3e6" class="origin-center rotate-45 scale-[1.2]"/>
+                                        <path d="M10 30C10 18.9543 18.9543 10 30 10H70C81.0457 10 90 18.9543 90 30V70C90 81.0457 81.0457 90 70 90H30C18.9543 90 10 81.0457 10 70V30Z" fill="#ffb3e6"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight mb-3">Press kit</h3>
+                                <p class="text-[#a1a1a1] text-[15px] sm:text-[16px] leading-relaxed mb-8 flex-grow">Download the official press kit for author bio, portraits, and book materials.</p>
+                                <button class="bg-white text-black px-6 py-2.5 rounded-full font-semibold text-[15px] hover:bg-gray-200 transition-colors duration-200">Download</button>
+                            </div>
+                            <div class="bg-[#181818] rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col items-start flex-1">
+                                <div class="w-[100px] h-[100px] mb-12 sm:mb-16 rounded-3xl overflow-hidden bg-[#222]">
+                                    <img src="assets/hero.jpg" alt="Agent" class="w-full h-full object-cover" />
+                                </div>
+                                <h3 class="text-[22px] sm:text-[24px] lg:text-[28px] font-bold tracking-tight mb-3">Agent contact</h3>
+                                <p class="text-[#a1a1a1] text-[15px] sm:text-[16px] leading-relaxed mb-8 flex-grow">For rights, speaking engagements, or interview requests, please contact: <em class="text-white font-medium not-italic">Karin Madsen, North Coast Literary Agency</em></p>
+                                <button class="bg-white text-black px-6 py-2.5 rounded-full font-semibold text-[15px] hover:bg-gray-200 transition-colors duration-200">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Book Highlight Section (Bottom) -->
+            <section class="bg-[var(--white)] w-full py-12 sm:py-16 flex justify-center selection:bg-[var(--black)] selection:text-[var(--white)]">
+                <div class="w-full max-w-[1440px] px-4 sm:px-8 lg:px-12">
+                    <div class="bg-[var(--black)] w-full px-8 sm:px-12 lg:px-20 py-12 lg:py-16 flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-6 overflow-hidden">
+                        <div class="flex flex-col justify-between w-full lg:w-[45%] order-2 lg:order-1 z-10 min-h-full">
+                            <div>
+                                <h2 class="heading-h2 !text-[var(--white)] leading-[1.05] tracking-tight text-[40px] sm:text-[48px] lg:text-[56px] xl:text-[64px]">
+                                    The newest <br class="hidden lg:block" /> release (2026)
+                                </h2>
+                            </div>
+                            <div class="mt-16 lg:mt-auto flex flex-col items-start gap-6 lg:gap-8">
+                                <p class="text-[var(--white)] font-medium text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.6] max-w-[90%] whitespace-pre-line">Fenwick's highly anticipated new book is available for pre-order now.</p>
+                                <a href="#" class="bg-[var(--white)] text-[var(--black)] hover:bg-gray-200 px-7 py-3 rounded-full font-bold text-[14px] transition-colors duration-200 cursor-pointer inline-block">Pre-order</a>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-[52%] flex justify-center lg:justify-end order-1 lg:order-2 relative z-0 mt-8 lg:mt-0 items-center">
+                            <div class="relative w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[580px] aspect-[5/4] flex items-center justify-center">
+                                <img src="assets/hero.jpg" class="w-full h-full object-cover rounded-[75px]" alt="Book Highlight" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="relative z-10 bg-[var(--white)] w-full flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+            <!-- Footer -->
+            <footer class="bg-[var(--black)] text-[var(--white)] w-full flex justify-center selection:bg-[var(--white)] selection:text-[var(--black)]">
+                <div class="w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 pt-20 sm:pt-28 pb-10 flex flex-col">
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-8 mb-24">
+                        <div class="flex flex-row gap-16 sm:gap-32 lg:gap-40">
+                            <div class="flex flex-col gap-6">
+                                <span class="text-[#A3A3A3] text-[15px] font-medium tracking-wide">Pages</span>
+                                <ul class="flex flex-col gap-5">
+                                    <li><a href="about.html" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">About</a></li>
+                                    <li><a href="index.html#books" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Books</a></li>
+                                    <li><a href="index.html#events" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Events</a></li>
+                                    <li><a href="contact.html" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-col gap-6">
+                                <span class="text-[#A3A3A3] text-[15px] font-medium tracking-wide">Social</span>
+                                <ul class="flex flex-col gap-5">
+                                    <li><a href="#" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Instagram</a></li>
+                                    <li><a href="#" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">LinkedIn</a></li>
+                                    <li><a href="#" class="text-[var(--white)] text-[16px] font-bold hover:text-[#A3A3A3] transition-colors duration-200">Facebook</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-6 w-full lg:w-auto lg:min-w-[400px]">
+                            <span class="text-[var(--white)] text-[18px] sm:text-[20px] font-bold tracking-tight">Get monthly newsletter</span>
+                            <form class="flex flex-row items-center gap-3 w-full" onsubmit="event.preventDefault()">
+                                <input type="email" placeholder="Your email" class="w-full lg:w-[280px] bg-[#222222] text-white placeholder-[#888888] px-6 py-3.5 rounded-full outline-none focus:ring-1 focus:ring-white transition-all text-[15px]" required />
+                                <button type="submit" class="bg-[var(--white)] text-[var(--black)] hover:bg-[#E6E6E6] px-8 py-3.5 rounded-full font-bold text-[15px] transition-colors duration-200">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="w-full h-px bg-[#333333] mb-8"></div>
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+                        <span class="text-[var(--white)] font-bold text-[14px] sm:text-[15px]">Website by Sanna Granqvist</span>
+                        <span class="text-[var(--white)] font-bold text-[14px] sm:text-[15px]">© 2026 Alex Fenwick. All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
