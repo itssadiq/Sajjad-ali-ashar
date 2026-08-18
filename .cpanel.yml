@@ -3,5 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/thedigiologist/domains/sajjadaliashar.com/public_html/
     - /bin/rsync -a --exclude='.git' --exclude='.next' ./ $DEPLOYPATH
-    - cd $DEPLOYPATH && /usr/bin/npm ci
-    - cd $DEPLOYPATH && /usr/bin/npm run build
+    - source /home/thedigiologist/nodevenv/domains/sajjadaliashar.com/public_html/22/bin/activate && cd $DEPLOYPATH && npm ci
+    - source /home/thedigiologist/nodevenv/domains/sajjadaliashar.com/public_html/22/bin/activate && cd $DEPLOYPATH && npm run build
