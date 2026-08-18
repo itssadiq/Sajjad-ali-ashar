@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/thedigiologist/domains/sajjadaliashar.com/public_html/
+    - /bin/rsync -a --exclude='.git' ./ $DEPLOYPATH
